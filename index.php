@@ -34,7 +34,7 @@ function getData()
 {
   global $date, $from, $to, $citysMap;
 
-  print_r($citysMap);
+  // print_r($citysMap);
 
   $url = "https://kyfw.12306.cn/otn/leftTicket/query?leftTicketDTO.train_date={$date}&leftTicketDTO.from_station={$citysMap[$from]}&leftTicketDTO.to_station={$citysMap[$to]}&purpose_codes=ADULT";
 
@@ -53,7 +53,6 @@ function handleData($data)
   $dataArray = array();
   foreach ($data as $item) {
     $itemArray = explode('|', $item);
-
     $data = array();
 
     $data['train_no'] = $itemArray[2];
