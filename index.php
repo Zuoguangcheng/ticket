@@ -93,5 +93,5 @@ function handleData($data)
     array_push($dataArray, $data);
   }
 
-  echo json_encode($dataArray);
+  return json_encode($dataArray);
 }
