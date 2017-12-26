@@ -18,6 +18,8 @@ $from = $_GET['from'];
 $to = $_GET['to'];
 $date = $_GET['date'];
 
+echo json_encode($from);
+
 if (array_key_exists($from, $citysMap) && array_key_exists($to, $citysMap)) {
   getData();
 } else {
