@@ -13,10 +13,10 @@ foreach ($match[0] as $city) {
   $cityMap = explode('|', $city);
   $citysMap[$cityMap[0]] = $cityMap[1];
 }
-
-$from = $argv[1];
-$to = $argv[2];
-$date = $argv[3];
+var_dump($_GET);
+$from = $_GET['from'];
+$to = $_GET['to'];
+$date = $_GET['date'];
 
 if (array_key_exists($from, $citysMap) && array_key_exists($to, $citysMap)) {
   getData();
