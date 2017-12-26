@@ -1,5 +1,12 @@
 <?php
-header("Content-Type: text/html; charset=utf-8");
+// 指定允许其他域名访问    
+header('Access-Control-Allow-Origin:*');    
+// 响应类型    
+header('Access-Control-Allow-Methods:POST');    
+// 响应头设置    
+header('Access-Control-Allow-Headers:x-requested-with,content-type');    
+
+
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "https://kyfw.12306.cn/otn/resources/js/framework/station_name.js?station_version=1.9035");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
