@@ -4,7 +4,7 @@ header('Access-Control-Allow-Methods:POST');
 header('Access-Control-Allow-Headers:x-requested-with,content-type');    
 
 
-$servername = "http://39.106.118.108/";
+$servername = "39.106.118.108";
 $username = "root";
 $password = "root";
 // 创建连接
