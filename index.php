@@ -3,6 +3,19 @@ header('Access-Control-Allow-Origin:*');
 header('Access-Control-Allow-Methods:POST');    
 header('Access-Control-Allow-Headers:x-requested-with,content-type');    
 
+
+$servername = "http://39.106.118.108/";
+$username = "root";
+$password = "root";
+// 创建连接
+$conn = new mysqli($servername, $username, $password);
+// 检测连接
+if ($conn->connect_error) {
+die("连接失败: " . $conn->connect_error);
+}
+echo "连接成功";
+return false;
+
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "https://kyfw.12306.cn/otn/resources/js/framework/station_name.js?station_version=1.9035");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -34,7 +47,7 @@ function getData()
 {
   global $date, $from, $to, $citysMap;
 
-  // print_r($citysMap);
+  print_r($citysMap);
 
   $url = "https://kyfw.12306.cn/otn/leftTicket/query?leftTicketDTO.train_date={$date}&leftTicketDTO.from_station={$citysMap[$from]}&leftTicketDTO.to_station={$citysMap[$to]}&purpose_codes=ADULT";
 
@@ -53,6 +66,7 @@ function handleData($data)
   $dataArray = array();
   foreach ($data as $item) {
     $itemArray = explode('|', $item);
+
     $data = array();
 
     $data['train_no'] = $itemArray[2];
